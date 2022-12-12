@@ -16,7 +16,23 @@
       <pubDate>Mon, 05 Dec 2022 04:54:42 +0800</pubDate>
       
       <guid>https://penguin7210.github.io/post/first/</guid>
-      <description></description>
+      <description>这是 penguin7210 的Linux大作业。
+1 Linux课程中的学习笔记 1.1 shell语法 命令 选项 参数
+命令：整条shell命令的主体
+选项：会影响会微调整个命令的行为
+参数：命令作用的对象
+自动补全
+快捷键
+ctrl+C：终止前台运行的程序 ctrl+D：相当于exit ctrl+L：清屏 ctrl+A：光标移到命令行的前端 ctrl+E：光标移到命令行的后端 ctrl+K：删除光标后的所有字符 ctrl+U：删除光标前的所有字符 1.2 文件管理 1.2.1 文件目录结构 1.3 输出重定向 正确输出：&amp;gt; 等价于1&amp;gt; ：将目标输出到文件中，会覆盖 &amp;raquo;等价于1&amp;raquo;： 将目标输出到文件中，追加到文件后
+错误输出：2&amp;gt;将错误命令输出到文件中 ，有覆盖作用 ，2&amp;raquo;： 将错误命令输出到文件中 ，追加到文件后*
+&amp;amp;&amp;gt; 不管是正确输出还是错误输出都重定向到一个文件中
+1.4 输入重定向 &amp;lt; 或者 0&amp;lt; 将文件中的内容作为CMD的输入 command file2 将 file1 作为 command 的输入，并将 command 的处理结果输出到 file2。
+重定向符号&amp;laquo;，这个符号的作用是使用特定的分界符作为命令输入的结束标志，而不使用 Ctrl+D 键。
+1.5 管道 操作符是：”|”,它只能处理经由前面一个指令传出的正确输出信息，对错误信息信息没有直接处理能力。然后，传递给下一个命令，作为标准的输入。
+1.6 awk命令讲解 awk是行处理器:
+相比较屏幕处理的优点，在处理庞大文件时不会出现内存溢出或是处理缓慢的问题，通常用来格式化文本信息
+awk处理过程:
+awk使用一行作为输入，并将这一行赋给内部变量$0，每一行也可称为一个记录，以换行符（RS）结束； 每行被间隔符：（默认为空格活制表符）分解成字段，每个字段储存在已编好的变量中，从$1开始 awk使用print函数打印字段，打印出来的字段以空格分隔，因为$1,$3之间有一个逗号，逗号比较特殊，它映射为另一个内部变量，称为输出字段分隔符OFS，OFS默认为空格 awk处理完一行后，将从文件中获取另一行，并将其储存在$0中，覆盖原来的内容，然后将新的字符串分隔成字段并进行处理，该过程将持续到所有行处理完成。 awk命令形式: awk [-F|-f|-v] ‘BEGIN{} //{command1; command2} END{}’ file [-F|-f|-v] 大参数，-F指定分隔符，-f调用脚本，-v定义变量 var=value &amp;#39; &amp;#39; 引用代码块 BEGIN 初始化代码块，在对每一行进行处理之前，初始化代码，主要是引用全局变量，设置FS分隔符，注意：如果要手动设置分隔符，在分隔符开始要用BEGIN // 匹配代码块，可以是字符串或正则表达式 {} 命令代码块，包含一条或多条命令 ； 多条命令使用分号分隔 END 结尾代码块，在对每一行进行处理之后再执行的代码块，主要是进行最终计算或输出结尾摘要信息 **特殊要点:** $0 表示整个当前行，整行全部内容，awk &amp;#39;{print $0}&amp;#39; copy.</description>
     </item>
     
     <item>
@@ -25,7 +41,20 @@
       <pubDate>Sun, 04 Dec 2022 20:12:35 +0800</pubDate>
       
       <guid>https://penguin7210.github.io/post/blog/</guid>
-      <description></description>
+      <description>这是 penguin7210 的Linux大作业。
+2 Linux大作业完成步骤 第一题 创建目录，将安装的软件存放在此目录下
+mkdir test cd test 下载git安装包
+wget https://github.com/git/git/archive/refs/tags/v2.31.1.tar.gz 下载依赖项
+yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker 安装依赖完成
+解压git安装包
+tar -zxvf v2.31.1.tar.gz 查看目录可发现安装包已解压并且存在该目录下
+ls 编译源码
+make prefix=/usr/local/git all 安装git
+make prefix=/usr/local/git install 安装git命令
+yum install -y git git安装成功
+git --version 配置环境变量
+#vim/etc/profile Path=$Path:/usr/local/git/bin export PATH 配置git：配置用户名、邮箱、Windows提交到Linux上是否自动转换换行符、字符集
+git config --global user.name XX git config --global user.email xx git config --global core.autocrlf false git config --global gui.</description>
     </item>
     
   </channel>
